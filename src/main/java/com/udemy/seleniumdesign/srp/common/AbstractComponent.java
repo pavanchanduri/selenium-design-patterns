@@ -3,11 +3,12 @@ package com.udemy.seleniumdesign.srp.common;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
+import lombok.NonNull;
 import java.time.Duration;
 
 /**
- * 
+ * AbstractComponent serves as a base class for page components in the Selenium Design SRP project.
+ * It provides common functionality such as waiting for elements and initializing PageFactory.
  */
 public abstract class AbstractComponent {
 
@@ -19,7 +20,7 @@ public abstract class AbstractComponent {
      * 
      * @param driver the WebDriver instance to be used for waiting and element initialization
      */
-    public AbstractComponent(final WebDriver driver){
+    public AbstractComponent(@NonNull final WebDriver driver){
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         PageFactory.initElements(driver, this);
     }
