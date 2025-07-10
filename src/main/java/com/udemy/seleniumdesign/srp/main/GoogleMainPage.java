@@ -2,31 +2,30 @@ package com.udemy.seleniumdesign.srp.main;
 
 import com.udemy.seleniumdesign.srp.common.SearchSuggestion;
 import com.udemy.seleniumdesign.srp.common.SearchWidget;
+
+import lombok.NonNull;
+import lombok.Getter;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.PageFactory;
 
 public class GoogleMainPage {
 
     private WebDriver driver;
-    private SearchWidget searchWidget;
-    private SearchSuggestion searchSuggestion;
+    private @Getter SearchWidget searchWidget; 
+    private @Getter SearchSuggestion searchSuggestion;
 
-    public GoogleMainPage(final WebDriver driver){
+    /**
+     * Constructor for GoogleMainPage.
+     * Initializes the WebDriver and the page elements using PageFactory.
+     *
+     * @param driver the WebDriver instance to interact with the browser
+     */
+    public GoogleMainPage(@NonNull final WebDriver driver){
         this.driver = driver;
-        this.searchWidget = PageFactory.initElements(driver, SearchWidget.class);
-        this.searchSuggestion = PageFactory.initElements(driver, SearchSuggestion.class);
+        this.searchWidget = new SearchWidget(driver);
+        this.searchSuggestion = new SearchSuggestion(driver);
     }
 
     public void goTo(){
         this.driver.get("https://www.google.com");
     }
-
-    public SearchWidget getSearchWidget() {
-        return searchWidget;
-    }
-
-    public SearchSuggestion getSearchSuggestion() {
-        return searchSuggestion;
-    }
-
 }

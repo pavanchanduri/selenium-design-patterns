@@ -51,3 +51,4 @@
 **/output
 Makefile
 
+.DS_Store

@@ -19,7 +19,6 @@ public class BaseTest {
         this.driver = new ChromeDriver();
     }
 
-
     @AfterTest
     public void quitDriver(){
         Uninterruptibles.sleepUninterruptibly(3, TimeUnit.SECONDS);
