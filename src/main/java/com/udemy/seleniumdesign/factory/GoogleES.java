@@ -28,8 +28,7 @@ class GoogleES extends GoogleEnglish {
      */
     @Override
     public void launchSite(){
-        this.driver.get("https://www.google.es");
-        this.language.click();
+        this.driver.get("https://www.google.com/?&hl=es");
     }
 
 }

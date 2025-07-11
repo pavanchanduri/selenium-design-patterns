@@ -10,7 +10,7 @@ class GoogleArabic extends GoogleEnglish {
     @FindBy(css = "div#gws-output-pages-elements-homepage_additional_languages__als a")
     private WebElement language;
 
-    @FindBy(css = "span.hOoLGe")
+    @FindBy(css = "span.ly0Ckb")
     private WebElement keyboardBtn;
 
     @FindBy(id = "kbd")
@@ -22,8 +22,7 @@ class GoogleArabic extends GoogleEnglish {
 
     @Override
     public void launchSite(){
-        this.driver.get("https://www.google.com.sa");
-        this.language.click();
+        this.driver.get("https://www.google.com/?&hl=ar");
     }
 
     @Override
@@ -33,6 +32,4 @@ class GoogleArabic extends GoogleEnglish {
         this.wait.until((d) -> this.keyboard.isDisplayed());
         super.search(keyword);
     }
-
-
 }
