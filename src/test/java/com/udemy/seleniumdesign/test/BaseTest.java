@@ -9,16 +9,26 @@ import org.testng.annotations.BeforeTest;
 
 import java.util.concurrent.TimeUnit;
 
+/**
+ * Base test class for Selenium tests
+ * Provides setup and teardown methods for WebDriver
+ */
 public class BaseTest {
 
     protected WebDriver driver;
 
+    /**
+     * Setup the Chrome WebDriver
+     */
     @BeforeTest
     public void setupDriver(){
         WebDriverManager.chromedriver().setup();
         this.driver = new ChromeDriver();
     }
 
+    /**
+     * Quit the Chrome WebDriver
+     */
     @AfterTest
     public void quitDriver(){
         Uninterruptibles.sleepUninterruptibly(3, TimeUnit.SECONDS);

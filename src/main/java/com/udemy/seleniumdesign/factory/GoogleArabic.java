@@ -3,7 +3,7 @@ package com.udemy.seleniumdesign.factory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-
+import lombok.NonNull;
 
 class GoogleArabic extends GoogleEnglish {
 
@@ -16,7 +16,7 @@ class GoogleArabic extends GoogleEnglish {
     @FindBy(id = "kbd")
     private WebElement keyboard;
 
-    public GoogleArabic(WebDriver driver) {
+    public GoogleArabic(@NonNull final WebDriver driver) {
         super(driver);
     }
 
@@ -27,7 +27,7 @@ class GoogleArabic extends GoogleEnglish {
     }
 
     @Override
-    public void search(String keyword){
+    public void search(@NonNull final String keyword){
         this.wait.until((d) -> this.keyboardBtn.isDisplayed());
         this.keyboardBtn.click();
         this.wait.until((d) -> this.keyboard.isDisplayed());
