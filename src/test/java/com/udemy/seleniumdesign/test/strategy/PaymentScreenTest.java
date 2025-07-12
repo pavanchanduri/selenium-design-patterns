@@ -11,18 +11,31 @@ import org.testng.collections.Maps;
 
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
+import lombok.NonNull;
 
 public class PaymentScreenTest extends BaseTest {
 
     private PaymentScreen paymentScreen;
 
+    /**
+     * Sets up the PaymentScreen instance before running the tests.
+     * This method initializes the PaymentScreen with the WebDriver instance.
+     */
     @BeforeTest
     public void setPaymentScreen(){
         this.paymentScreen = new PaymentScreen(this.driver);
     }
 
+    /**
+     * Tests the payment functionality with different payment options.
+     * It navigates to the payment screen, enters user details, selects a payment option,
+     * and places an order, printing the order number to the console.
+     *
+     * @param option         the payment option to test (e.g., "CC" for credit card, "NB" for net banking)
+     * @param paymentDetails a map containing payment details specific to the selected option
+     */
     @Test(dataProvider = "getData")
-    public void paymentTest(String option, Map<String, String> paymentDetails){
+    public void paymentTest(@NonNull final String option, @NonNull final Map<String, String> paymentDetails){
         this.paymentScreen.goTo();
         this.paymentScreen.getUserInformation().enterDetails("vinoth", "selvaraj", "udemy@gmail.com");
         this.paymentScreen.setPaymentOption(PaymentOptionFactory.get(option));
@@ -37,6 +50,13 @@ public class PaymentScreenTest extends BaseTest {
 
     }
 
+    /**
+     * Provides test data for the paymentTest method.
+     * It returns a 2D array of objects, where each object contains a payment option
+     * and the corresponding payment details.
+     *
+     * @return a 2D array of objects containing payment options and their details
+     */
     @DataProvider
     public Object[][] getData(){
 
