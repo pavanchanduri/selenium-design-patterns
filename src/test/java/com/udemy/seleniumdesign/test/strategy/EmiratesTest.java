@@ -19,7 +19,7 @@ public class EmiratesTest extends BaseTest {
     }
 
     @Test(dataProvider = "getData")
-    public void paymentTest(FlightSearch flightSearch, Map<String, String> searchDetails){
+    public void paymentTest(IFlightSearch flightSearch, Map<String, String> searchDetails){
         this.emiratesPage.goTo();
         this.emiratesPage.setFlightSearch(flightSearch);
         this.emiratesPage.searchForFlights(searchDetails);

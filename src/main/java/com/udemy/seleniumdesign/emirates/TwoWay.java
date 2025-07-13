@@ -1,13 +1,11 @@
 package com.udemy.seleniumdesign.emirates;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
 import java.util.Map;
 
-public class TwoWay implements FlightSearch {
+public class TwoWay implements IFlightSearch {
 
     @FindBy(id = "Div1")
     private WebElement twowayRadio;

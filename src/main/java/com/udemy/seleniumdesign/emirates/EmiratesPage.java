@@ -10,8 +10,8 @@ import java.util.Map;
 public class EmiratesPage {
 
     private final WebDriver driver;
-    private FlightSearch flightSearch;
-    private final By seassionExpired = By.className("ts-session-expire--link");
+    private IFlightSearch flightSearch;
+    private final By sessionExpired = By.className("ts-session-expire--link");
 
     public EmiratesPage(final WebDriver driver){
         this.driver = driver;
@@ -19,13 +19,13 @@ public class EmiratesPage {
 
     public void goTo(){
         this.driver.get("https://fly10.emirates.com/CAB/IBE/SearchAvailability.aspx");
-        this.driver.findElements(seassionExpired)
+        this.driver.findElements(sessionExpired)
                 .stream()
                 .findFirst()
                 .ifPresent(WebElement::click);
     }
 
-    public void setFlightSearch(FlightSearch flightSearch){
+    public void setFlightSearch(IFlightSearch flightSearch){
         this.flightSearch = flightSearch;
         PageFactory.initElements(driver, this.flightSearch);
         this.flightSearch.setDatePicker(PageFactory.initElements(driver, DatePicker.class));

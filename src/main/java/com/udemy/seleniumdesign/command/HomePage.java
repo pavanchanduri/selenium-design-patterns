@@ -54,17 +54,30 @@ public class HomePage {
     @FindBy(css = "#main-wrapper > div > div > div:nth-child(3) > div > div > div > div > div:nth-child(2) > div.alert-warning")
     private WebElement dismissWarnAlert;
 
+    /**
+     * Constructor for the HomePage class.
+     * @param driver the WebDriver instance used to interact with the web page.
+     */
     public HomePage(final WebDriver driver){
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         PageFactory.initElements(driver, this);
     }
 
+    /**
+     * Navigates to the home page of the application.
+     * This method loads the home page URL and waits until the info button is displayed.
+     */
     public void goTo(){
         this.driver.get("https://vins-udemy.s3.amazonaws.com/ds/admin-template/admin-template.html");
         this.wait.until((d) -> this.infoBtn.isDisplayed());
     }
 
+    /**
+     * Returns a list of element validators for the home page.
+     * These validators are used to check the state of various elements on the page.
+     * @return a list of ElementValidator instances.
+     */
     public List<ElementValidator> getElementValidators(){
         return Arrays.asList(
                 //notification

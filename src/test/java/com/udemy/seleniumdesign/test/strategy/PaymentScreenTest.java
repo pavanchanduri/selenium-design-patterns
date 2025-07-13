@@ -38,7 +38,16 @@ public class PaymentScreenTest extends BaseTest {
     public void paymentTest(@NonNull final String option, @NonNull final Map<String, String> paymentDetails){
         this.paymentScreen.goTo();
         this.paymentScreen.getUserInformation().enterDetails("vinoth", "selvaraj", "udemy@gmail.com");
-        this.paymentScreen.setPaymentOption(PaymentOptionFactory.get(option));
+        /**
+         * Sets the payment option strategy based on the provided option string.
+         * This method retrieves the appropriate payment option from the PaymentOptionFactory
+         * and initializes the payment option in the PaymentScreen instance.    
+         * @param option the payment option as a String (e.g., "CC" for Credit Card, "NB" for Net Banking)
+         * @see PaymentOptionFactory#get(String)
+         * @see IPaymentOption
+         * @see PaymentScreen#setPaymentOption(IPaymentOption)  
+         */
+        this.paymentScreen.setPaymentOption(PaymentOptionFactory.get(option)); 
         this.paymentScreen.pay(paymentDetails);
         String orderNumber = this.paymentScreen.getOrder().placeOrder();
 
