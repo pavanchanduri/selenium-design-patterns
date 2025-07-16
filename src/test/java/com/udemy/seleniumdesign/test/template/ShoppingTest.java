@@ -6,14 +6,23 @@ import com.udemy.seleniumdesign.template.ShoppingTemplate;
 import com.udemy.seleniumdesign.test.BaseTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import lombok.NonNull;
 
 public class ShoppingTest extends BaseTest {
 
+    /**
+     * Test the shopping functionality of different platforms.
+     * @param shoppingTemplate
+     */
     @Test(dataProvider = "getData")
-    public void shoppingTest(ShoppingTemplate shoppingTemplate){
+    public void shoppingTest(@NonNull final ShoppingTemplate shoppingTemplate){
         shoppingTemplate.shop();
     }
 
+    /**
+     * Data provider for shoppingTest.
+     * @return array of ShoppingTemplate
+     */
     @DataProvider
     public Object[] getData(){
         return new Object[]{
@@ -21,5 +30,4 @@ public class ShoppingTest extends BaseTest {
                 new EBayShopping(driver, "samsung 4k")
         };
     }
-
 }

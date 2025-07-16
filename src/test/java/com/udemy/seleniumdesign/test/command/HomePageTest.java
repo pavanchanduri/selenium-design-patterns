@@ -31,6 +31,10 @@ public class HomePageTest extends BaseTest {
                 .parallel()
                 .map(ev -> ev.validate())
                 .forEach(b -> Assert.assertTrue(b));
+
+        // for (var validator : this.homePage.getElementValidators()) {
+        //     Assert.assertTrue(validator.validate());
+        // }
     }
 
 }

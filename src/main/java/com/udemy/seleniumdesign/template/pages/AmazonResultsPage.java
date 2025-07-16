@@ -7,24 +7,30 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import lombok.NonNull;
 
 public class AmazonResultsPage {
 
-    private WebDriver driver;
     private WebDriverWait wait;
 
-    @FindBy(css = "span.a-size-medium")
+    @FindBy(xpath = "//a[contains(@class,'a-link-normal')]")
     private WebElement item;
 
-    public AmazonResultsPage(WebDriver driver){
-        this.driver = driver;
+    /**
+     * Constructor for AmazonResultsPage.
+     *
+     * @param driver the WebDriver instance to use for this page
+     */
+    public AmazonResultsPage(@NonNull final WebDriver driver) {
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         PageFactory.initElements(driver, this);
     }
 
+    /**
+     * Selects the first product from the search results.
+     */
     public void selectProduct() {
         this.wait.until((d) -> this.item.isDisplayed());
         this.item.click();
     }
-
 }

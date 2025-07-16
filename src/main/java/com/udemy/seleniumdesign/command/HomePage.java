@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import java.util.Arrays;
 import java.util.List;
+import lombok.NonNull;
 
 public class HomePage {
 
@@ -29,36 +30,36 @@ public class HomePage {
     private WebElement dangerBtn;
 
     //notifications
-    @FindBy(css = "div.jq-icon-info")
+    @FindBy(xpath = "//div[contains(@class, 'jq-icon-info')]")
     private WebElement infoAlert;
 
-    @FindBy(css = "div.jq-icon-warning")
+    @FindBy(xpath = "//div[contains(@class, 'jq-icon-warning')]")
     private WebElement warnAlert;
 
-    @FindBy(css = "div.jq-icon-success")
+    @FindBy(xpath = "//div[contains(@class, 'jq-icon-success')]")
     private WebElement successAlert;
 
-    @FindBy(css = "div.jq-icon-error")
+    @FindBy(xpath = "//div[contains(@class, 'jq-icon-error')]")
     private WebElement dangerAlert;
 
     //dismissal alert
-    @FindBy(css = "#main-wrapper > div > div > div:nth-child(3) > div > div > div > div > div:nth-child(2) > div.alert-info")
+    @FindBy(xpath = "//h4[contains(text(), 'Dissmissal Alert')]/following-sibling::div[contains(@class,'alert-info')]")
     private WebElement dismissInfoAlert;
 
-    @FindBy(css = "#main-wrapper > div > div > div:nth-child(3) > div > div > div > div > div:nth-child(2) > div.alert-success")
+    @FindBy(xpath = "//h4[contains(text(), 'Dissmissal Alert')]/following-sibling::div[contains(@class,'alert-success')]")
     private WebElement dismissSuccessAlert;
 
-    @FindBy(css = "#main-wrapper > div > div > div:nth-child(3) > div > div > div > div > div:nth-child(2) > div.alert-danger")
+    @FindBy(xpath = "//h4[contains(text(), 'Dissmissal Alert')]/following-sibling::div[contains(@class,'alert-danger')]")
     private WebElement dismissDangerAlert;
 
-    @FindBy(css = "#main-wrapper > div > div > div:nth-child(3) > div > div > div > div > div:nth-child(2) > div.alert-warning")
+    @FindBy(xpath = "//h4[contains(text(), 'Dissmissal Alert')]/following-sibling::div[contains(@class,'alert-warning')]")
     private WebElement dismissWarnAlert;
 
     /**
      * Constructor for the HomePage class.
      * @param driver the WebDriver instance used to interact with the web page.
      */
-    public HomePage(final WebDriver driver){
+    public HomePage(@NonNull final WebDriver driver){
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         PageFactory.initElements(driver, this);
