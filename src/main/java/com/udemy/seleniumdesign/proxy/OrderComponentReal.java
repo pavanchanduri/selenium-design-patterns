@@ -5,6 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import lombok.NonNull;
+
 public class OrderComponentReal implements OrderComponent {
 
     @FindBy(id = "buy")
@@ -13,7 +15,7 @@ public class OrderComponentReal implements OrderComponent {
     @FindBy(id = "ordernumber")
     private WebElement orderNumber;
 
-    public OrderComponentReal(WebDriver driver){
+    public OrderComponentReal(@NonNull final WebDriver driver){
         PageFactory.initElements(driver, this);
     }
 

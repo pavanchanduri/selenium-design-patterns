@@ -4,15 +4,16 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
 import java.util.Map;
+import lombok.NonNull;
 
 public class PaymentScreen {
 
     private WebDriver driver;
     private UserInformation userInformation;
     private OrderComponent orderComponent;
-    private PaymentOption paymentOption;
+    private IPaymentOption paymentOption;
 
-    public PaymentScreen(final WebDriver driver){
+    public PaymentScreen(@NonNull final WebDriver driver){
         this.driver = driver;
         this.userInformation = PageFactory.initElements(driver, UserInformation.class);
         this.orderComponent = new OrderComponentProxy(driver);
@@ -30,12 +31,12 @@ public class PaymentScreen {
         return this.orderComponent;
     }
 
-    public void setPaymentOption(PaymentOption paymentOption) {
+    public void setPaymentOption(@NonNull final IPaymentOption paymentOption) {
         this.paymentOption = paymentOption;
         PageFactory.initElements(driver, this.paymentOption);
     }
 
-    public void pay(Map<String, String> paymentDetails){
+    public void pay(@NonNull final Map<String, String> paymentDetails){
         this.paymentOption.enterPaymentInformation(paymentDetails);
     }
 }
