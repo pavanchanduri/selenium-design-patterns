@@ -18,6 +18,12 @@ public class NetBanking implements IPaymentOption {
     @FindBy(id = "pin")
     private WebElement pin;
 
+    /**
+     * Enter payment information for net banking.
+     * @param paymentDetails Map containing payment details with keys "bank", "account", and "pin".
+     * @throws NullPointerException if paymentDetails is null or does not contain required keys.
+     * @throws IllegalArgumentException if paymentDetails does not contain all required keys.
+     */
     @Override
     public void enterPaymentInformation(@NonNull final Map<String, String> paymentDetails) {
         Select bankDropdown = new Select(bank);

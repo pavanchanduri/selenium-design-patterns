@@ -1,6 +1,5 @@
 package com.udemy.seleniumdesign.test.proxy;
 
-
 import com.google.common.util.concurrent.Uninterruptibles;
 import com.udemy.seleniumdesign.proxy.PaymentOptionFactory;
 import com.udemy.seleniumdesign.proxy.PaymentScreen;
@@ -29,7 +28,7 @@ public class PaymentScreenTest extends BaseTest {
         this.paymentScreen.getUserInformation().enterDetails("vinoth", "selvaraj", "udemy@gmail.com");
         this.paymentScreen.setPaymentOption(PaymentOptionFactory.get(option));
         this.paymentScreen.pay(paymentDetails);
-        String orderNumber = this.paymentScreen.getOrder().placeOrder();
+        String orderNumber = this.paymentScreen.getOrderComponent().placeOrder();
 
         System.out.println(
                 "Order Number : " + orderNumber

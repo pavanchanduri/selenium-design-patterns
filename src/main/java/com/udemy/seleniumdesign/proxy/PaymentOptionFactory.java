@@ -18,8 +18,16 @@ public class PaymentOptionFactory {
         MAP.put("NB", NB);
     }
 
+    /**
+     * Factory method to get the payment option based on the input string.
+     * This method uses a map to retrieve the appropriate payment option
+     * implementation based on the provided key.
+     * @param option - the key to identify the payment option
+     *                (e.g., "CC" for Credit Card, "NB" for NetBanking)
+     * @return IPaymentOption - an instance of the requested payment option i.e., new CreditCard() or new NetBanking()
+     */
     public static IPaymentOption get(@NonNull final String option){
-        return MAP.get(option).get();
+        return MAP.get(option).get(); 
     }
 
 }
