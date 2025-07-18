@@ -36,18 +36,39 @@ public class MainPage {
         this.driver.get("https://vins-udemy.s3.amazonaws.com/ds/main.html");
     }
 
+    /**
+     * Executes the consumer on FrameA after switching to it.
+     * After execution, it switches back to the default content.
+     * This allows for operations on FrameA without
+     * needing to manage the switching logic outside this method.
+     * @param consumer - the consumer to execute on FrameA
+     */
     public void onFrameA(Consumer<FrameA> consumer){
         this.driver.switchTo().frame(a);
         consumer.accept(this.frameA);
         this.driver.switchTo().defaultContent();
     }
 
+    /**
+     * Executes the consumer on FrameB after switching to it.
+     * After execution, it switches back to the default content.
+     * This allows for operations on FrameB without
+     * needing to manage the switching logic outside this method.
+     * @param consumer - the consumer to execute on FrameB
+     */
     public void onFrameB(Consumer<FrameB> consumer){
         this.driver.switchTo().frame(b);
         consumer.accept(this.frameB);
         this.driver.switchTo().defaultContent();
     }
 
+    /**
+     * Executes the consumer on FrameC after switching to it.
+     * After execution, it switches back to the default content.
+     * This allows for operations on FrameC without
+     * needing to manage the switching logic outside this method.
+     * @param consumer - the consumer to execute on FrameC
+     */
     public void onFrameC(Consumer<FrameC> consumer){
         this.driver.switchTo().frame(c);
         consumer.accept(this.frameC);
