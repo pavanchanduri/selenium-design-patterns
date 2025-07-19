@@ -19,7 +19,7 @@ public class OrderComponentProxy implements IOrderComponent {
      *
      * @param driver the WebDriver instance to be used by the real OrderComponent
      */
-    public OrderComponentProxy(@NonNull final WebDriver driver){
+    public OrderComponentProxy(@NonNull final WebDriver driver) {
         String currentEnv = System.getProperty("env"); // DEV / QA / PROD / STAGING
         if(!EXCLUDED.contains(currentEnv)){
             this.orderComponent = new OrderComponentReal(driver);

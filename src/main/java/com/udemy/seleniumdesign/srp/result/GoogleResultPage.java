@@ -16,6 +16,12 @@ public class GoogleResultPage {
     private NavigationBar navigationBar;
     private ResultStat resultStat;
 
+    /**
+     * Constructor for GoogleResultPage.
+     * Initializes the page components using the provided WebDriver.
+     *
+     * @param driver the WebDriver instance to interact with the browser
+     */
     public GoogleResultPage(@NonNull final WebDriver driver){
         this.searchWidget = new SearchWidget(driver);
         this.searchSuggestion = new SearchSuggestion(driver);

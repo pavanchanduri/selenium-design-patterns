@@ -4,6 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.Map;
+import lombok.NonNull;
 
 public class OneWay implements IFlightSearch {
 
@@ -21,8 +22,13 @@ public class OneWay implements IFlightSearch {
 
     private DatePicker datePicker;
 
+    /**
+     * Search for a one-way flight using the provided search details.
+     * @param searchDetails A map containing the search parameters such as departure city, arrival city, and date.
+     * The keys in the map should be "departureCity", "arrivalCity", and the date is handled by the DatePicker.
+     */
     @Override
-    public void search(Map<String, String> searchDetails) {
+    public void search(@NonNull final Map<String, String> searchDetails) {
         this.onewayRadio.click();
         this.departureCity.sendKeys(searchDetails.get("departureCity"));
         this.arrivalCity.sendKeys(searchDetails.get("arrivalCity"));
@@ -30,9 +36,12 @@ public class OneWay implements IFlightSearch {
         this.datePicker.selectToday();
     }
 
+    /**
+     * Set the DatePicker instance to be used for selecting dates.
+     * @param datePicker The DatePicker instance to set.
+     */
     @Override
-    public void setDatePicker(DatePicker datePicker) {
+    public void setDatePicker(@NonNull final DatePicker datePicker) {
         this.datePicker = datePicker;
     }
-
 }

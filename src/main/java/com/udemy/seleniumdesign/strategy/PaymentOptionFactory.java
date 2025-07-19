@@ -32,8 +32,7 @@ public class PaymentOptionFactory {
      * @param option the payment option as a String
      * @return an instance of IPaymentOption
      */
-    public static IPaymentOption get(@NonNull final String option){
+    public static IPaymentOption get(@NonNull final String option) {
         return MAP.get(option).get();
     }
-
 }

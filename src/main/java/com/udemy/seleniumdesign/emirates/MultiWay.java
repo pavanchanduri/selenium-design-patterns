@@ -4,6 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.Map;
+import lombok.NonNull;
 
 public class MultiWay implements IFlightSearch {
 
@@ -28,10 +29,17 @@ public class MultiWay implements IFlightSearch {
     @FindBy(id = "ctl00_c_CtWNW_txtD2")
     private WebElement departureDate2;
 
-    private DatePicker datePicker;
+    private @NonNull DatePicker datePicker;
 
+    /**
+     * Search for multi-way flights based on the provided search details.
+     * @param searchDetails A map containing the search parameters:
+     *                      "departureCity", "arrivalCity", "arrivalCity2"
+     *                      "departureDate", "departureDate2".
+     *                      The departureDate and departureDate2 are selected using the DatePicker.
+     */
     @Override
-    public void search(Map<String, String> searchDetails) {
+    public void search(@NonNull final Map<String, String> searchDetails) {
         this.multiwayRadio.click();
         this.departureCity.sendKeys(searchDetails.get("departureCity"));
         this.arrivalCity.sendKeys(searchDetails.get("arrivalCity"));
@@ -42,9 +50,12 @@ public class MultiWay implements IFlightSearch {
         this.datePicker.selectRandomFutureDate();
     }
 
+    /**
+     * Selects the departure city for the first leg of the multi-way flight.
+     * @param departureCity The city from which the flight departs.
+     */
     @Override
-    public void setDatePicker(DatePicker datePicker) {
+    public void setDatePicker(@NonNull final DatePicker datePicker) {
         this.datePicker = datePicker;
     }
-
 }

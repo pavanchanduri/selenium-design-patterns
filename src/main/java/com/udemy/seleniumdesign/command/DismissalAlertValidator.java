@@ -34,5 +34,4 @@ public class DismissalAlertValidator extends ElementValidator {
         }
         return result1 && result2;
     }
-
 }

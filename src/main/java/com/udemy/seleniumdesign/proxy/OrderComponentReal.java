@@ -20,7 +20,7 @@ public class OrderComponentReal implements IOrderComponent {
      *
      * @param driver the WebDriver instance used to initialize the page elements
      */
-    public OrderComponentReal(@NonNull final WebDriver driver){
+    public OrderComponentReal(@NonNull final WebDriver driver) {
         PageFactory.initElements(driver, this);
     }
 
@@ -34,5 +34,4 @@ public class OrderComponentReal implements IOrderComponent {
         this.buyNow.click();
         return this.orderNumber.getText();
     }
-
 }

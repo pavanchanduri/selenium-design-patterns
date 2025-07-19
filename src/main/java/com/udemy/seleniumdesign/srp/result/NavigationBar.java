@@ -1,6 +1,9 @@
 package com.udemy.seleniumdesign.srp.result;
 
 import com.udemy.seleniumdesign.srp.common.AbstractComponent;
+
+import lombok.NonNull;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -25,7 +28,7 @@ public class NavigationBar extends AbstractComponent {
      * This constructor is used to create an instance of NavigationBar with the provided WebDriver.
      * @param driver the WebDriver instance to be used for waiting and element initialization
      */
-    public NavigationBar(WebDriver driver) {
+    public NavigationBar(@NonNull final WebDriver driver) {
         super(driver);
     }
 

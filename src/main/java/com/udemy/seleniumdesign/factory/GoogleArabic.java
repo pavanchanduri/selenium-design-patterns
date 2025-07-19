@@ -21,12 +21,12 @@ class GoogleArabic extends GoogleEnglish {
     }
 
     @Override
-    public void launchSite(){
+    public void launchSite() {
         this.driver.get("https://www.google.com/?&hl=ar");
     }
 
     @Override
-    public void search(@NonNull final String keyword){
+    public void search(@NonNull final String keyword) {
         this.wait.until((d) -> this.keyboardBtn.isDisplayed());
         this.keyboardBtn.click();
         this.wait.until((d) -> this.keyboard.isDisplayed());

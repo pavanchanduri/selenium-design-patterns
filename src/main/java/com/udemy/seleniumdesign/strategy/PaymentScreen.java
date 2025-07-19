@@ -48,7 +48,7 @@ public class PaymentScreen {
      *
      * @param userDetails a map containing user details like name, email, and phone
      */
-    public void pay(@NonNull final Map<String, String> paymentDetails){
+    public void pay(@NonNull final Map<String, String> paymentDetails) {
         this.paymentOption.enterPaymentInformation(paymentDetails);
     }
 }

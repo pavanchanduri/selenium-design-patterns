@@ -25,5 +25,9 @@ public abstract class AbstractComponent {
         PageFactory.initElements(driver, this);
     }
 
+    /**
+     * Waits for the component to be displayed.
+     * This method should be implemented by subclasses to define specific waiting logic.
+     */
     public abstract boolean isDisplayed();
 }

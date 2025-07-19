@@ -7,46 +7,50 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
+import lombok.Getter;
+import lombok.NonNull;
 
 public class DashboardPage {
 
-    private WebDriver driver;
+    private @Getter WebDriver driver;
 
     @FindBy(id = "role")
     private WebElement role;
 
     @FindBy(css ="div.guest")
-    private List<WebElement> guestComponents;
+    private @Getter List<WebElement> guestComponents;
 
     @FindBy(css ="div.superuser")
-    private List<WebElement> superUserComponents;
+    private @Getter List<WebElement> superUserComponents;
 
     @FindBy(css ="div.admin")
-    private List<WebElement> adminComponents;
+    private @Getter List<WebElement> adminComponents;
 
-    public DashboardPage(WebDriver driver){
+    /**
+     * Constructor for DashboardPage.
+     * Initializes the WebDriver and PageFactory elements.
+     *
+     * @param driver the WebDriver instance to use for this page
+     */
+    public DashboardPage(@NonNull final WebDriver driver){
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 
+    /**
+     * Navigates to the dashboard page.
+     */
     public void goTo(){
         this.driver.get("https://vins-udemy.s3.amazonaws.com/ds/decorator.html");
     }
 
-    public void selectRole(String role){
+    /**
+     * Selects a role from the dropdown.
+     *
+     * @param role the role to select, must not be null
+     */
+    public void selectRole(@NonNull final String role){
         Select select = new Select(this.role);
         select.selectByValue(role);
-    }
-
-    public List<WebElement> getAdminComponents() {
-        return adminComponents;
-    }
-
-    public List<WebElement> getGuestComponents() {
-        return guestComponents;
-    }
-
-    public List<WebElement> getSuperUserComponents() {
-        return superUserComponents;
     }
 }

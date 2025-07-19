@@ -4,6 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.Map;
+import lombok.NonNull;
 
 public class TwoWay implements IFlightSearch {
 
@@ -24,8 +25,14 @@ public class TwoWay implements IFlightSearch {
 
     private DatePicker datePicker;
 
+    /**
+     * Search for a two-way flight based on the provided search details.
+     * @param searchDetails A map containing the search parameters such as departure city and arrival city.
+     *                      The departure date is set to today, and the return date is set to a random future date.
+     *                      Expected keys in the map: "departureCity", "arrivalCity".
+     */
     @Override
-    public void search(Map<String, String> searchDetails) {
+    public void search(@NonNull final Map<String, String> searchDetails) {
         this.twowayRadio.click();
         this.departureCity.sendKeys(searchDetails.get("departureCity"));
         this.departureDate.click();
@@ -35,8 +42,12 @@ public class TwoWay implements IFlightSearch {
         this.datePicker.selectRandomFutureDate();
     }
 
+    /**
+     * Sets the DatePicker instance to be used for selecting dates.
+     * @param datePicker The DatePicker instance to set.
+     */
     @Override
-    public void setDatePicker(DatePicker datePicker) {
+    public void setDatePicker(@NonNull final DatePicker datePicker) {
         this.datePicker = datePicker;
     }
 }

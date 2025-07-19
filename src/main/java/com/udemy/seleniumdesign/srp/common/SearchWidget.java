@@ -37,7 +37,7 @@ public class SearchWidget extends AbstractComponent {
      * This approach helps in avoiding issues with search suggestions that may appear too quickly.
      * @param keyword the search keyword to be entered
      */
-    public void enter(String keyword){
+    public void enter(@NonNull final String keyword) {
         this.searchBox.clear();
         for(char ch : keyword.toCharArray()){
             Uninterruptibles.sleepUninterruptibly(20, TimeUnit.MILLISECONDS);

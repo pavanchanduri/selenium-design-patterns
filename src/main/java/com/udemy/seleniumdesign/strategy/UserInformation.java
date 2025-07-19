@@ -22,7 +22,7 @@ public class UserInformation {
      *
      * @param driver the WebDriver instance
      */
-    public UserInformation(@NonNull final WebDriver driver){
+    public UserInformation(@NonNull final WebDriver driver) {
         PageFactory.initElements(driver, this);
     }
 
@@ -33,10 +33,9 @@ public class UserInformation {
      * @param ln the last name
      * @param email the email address
      */
-    public void enterDetails(@NonNull final String fn, @NonNull final String ln, @NonNull final String email){
+    public void enterDetails(@NonNull final String fn, @NonNull final String ln, @NonNull final String email) {
         this.firstName.sendKeys(fn);
         this.lastName.sendKeys(ln);
         this.email.sendKeys(email);
     }
-
 }

@@ -13,11 +13,16 @@ public class DatePicker {
     @FindBy(css ="td a.ui-state-default")
     private List<WebElement> futureDates;
 
+    /**
+     * Selects today's date.
+     */
     public void selectToday(){
         this.today.click();
     }
 
-    // always selecting 3rd date from current date
+    /**
+     * Selects a random future date, skipping the first three available dates.
+     */
     public void selectRandomFutureDate(){
         this.futureDates
                 .stream()
@@ -26,5 +31,4 @@ public class DatePicker {
                 .findFirst()
                 .ifPresent(WebElement::click);
     }
-
 }

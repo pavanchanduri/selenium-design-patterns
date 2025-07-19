@@ -3,6 +3,8 @@ package com.udemy.seleniumdesign.executearound;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import lombok.NonNull;
+
 public class FrameC {
 
     @FindBy(name="fn")
@@ -21,7 +23,7 @@ public class FrameC {
      * Sets the first name in the form.
      * @param firstName
      */
-    public void setFirstName(String firstName){
+    public void setFirstName(@NonNull final String firstName) {
         this.firstName.sendKeys(firstName);
     }
 
@@ -29,7 +31,7 @@ public class FrameC {
      * Sets the last name in the form.
      * @param lastName
      */
-    public void setLastName(String lastName){
+    public void setLastName(@NonNull final String lastName) {
         this.lastName.sendKeys(lastName);
     }
 
@@ -37,7 +39,7 @@ public class FrameC {
      * Sets the address in the form.
      * @param address
      */
-    public void setAddress(String address){
+    public void setAddress(@NonNull final String address) {
         this.address.sendKeys(address);
     }
 
@@ -45,8 +47,7 @@ public class FrameC {
      * Sets the message in the form.
      * @param message
      */
-    public void setMessage(String message){
+    public void setMessage(@NonNull final String message) {
         this.message.sendKeys(message);
     }
-
 }

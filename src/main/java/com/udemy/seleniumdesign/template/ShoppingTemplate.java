@@ -13,11 +13,10 @@ public abstract class ShoppingTemplate {
      * It calls the abstract methods in a specific order to complete the shopping process.
      * Subclasses will provide the implementation for each step.
      */
-    public void shop(){
+    public void shop() {
         launchSite();
         searchForProduct();
         selectProduct();
         buy();
     }
-
 }

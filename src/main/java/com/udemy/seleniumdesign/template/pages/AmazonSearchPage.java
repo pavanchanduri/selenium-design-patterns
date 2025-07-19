@@ -21,7 +21,7 @@ public class AmazonSearchPage {
      * Constructor for AmazonSearchPage
      * @param driver
      */
-    public AmazonSearchPage(WebDriver driver){
+    public AmazonSearchPage(@NonNull final WebDriver driver){
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }

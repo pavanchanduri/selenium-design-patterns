@@ -25,6 +25,10 @@ public class GoogleMainPage {
         this.searchSuggestion = new SearchSuggestion(driver);
     }
 
+    /**
+     * Navigates to the Google main page.
+     * This method uses the WebDriver to open the Google homepage.
+     */
     public void goTo(){
         this.driver.get("https://www.google.com");
     }

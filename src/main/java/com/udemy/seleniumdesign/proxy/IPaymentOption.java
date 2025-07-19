@@ -1,6 +1,7 @@
 package com.udemy.seleniumdesign.proxy;
 
 import java.util.Map;
+import lombok.NonNull;
 
 /**
  * Interface representing a payment option.
@@ -8,5 +9,5 @@ import java.util.Map;
  * the method to enter payment information.
  */
 public interface IPaymentOption {
-    void enterPaymentInformation(Map<String, String> paymentDetails);
+    void enterPaymentInformation(@NonNull final Map<String, String> paymentDetails);
 }

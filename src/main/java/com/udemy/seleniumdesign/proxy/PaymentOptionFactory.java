@@ -29,5 +29,4 @@ public class PaymentOptionFactory {
     public static IPaymentOption get(@NonNull final String option){
         return MAP.get(option).get(); 
     }
-
 }
