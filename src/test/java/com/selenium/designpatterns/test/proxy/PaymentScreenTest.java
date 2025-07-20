@@ -16,12 +16,20 @@ public class PaymentScreenTest extends BaseTest {
 
     private PaymentScreen paymentScreen;
 
+    /**
+     * This method initializes the PaymentScreen object before running the tests.
+     * It is annotated with @BeforeTest to ensure it runs before any test methods.
+     */
     @BeforeTest
     public void setPaymentScreen(){
         System.setProperty("env", "PROD");
         this.paymentScreen = new PaymentScreen(this.driver);
     }
 
+    /**
+     * This test method verifies the payment process using different payment options.
+     * It uses a data provider to supply the payment option and details for each test case.
+     */
     @Test(dataProvider = "getData")
     public void paymentTest(String option, Map<String, String> paymentDetails){
         this.paymentScreen.goTo();
@@ -38,6 +46,10 @@ public class PaymentScreenTest extends BaseTest {
 
     }
 
+    /**
+     * This data provider returns an array of payment options and their details.
+     * Each entry in the array represents a different payment scenario.
+     */
     @DataProvider
     public Object[][] getData(){
 
@@ -56,5 +68,4 @@ public class PaymentScreenTest extends BaseTest {
                 {"NB", nb}
         };
     }
-
 }

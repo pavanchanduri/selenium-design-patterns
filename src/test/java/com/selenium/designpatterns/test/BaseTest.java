@@ -25,6 +25,7 @@ public class BaseTest {
     public void setupDriver(){
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
+        // This option prevents the captcha feature of chrome from being triggered
         options.addArguments("--disable-blink-features=AutomationControlled");
         this.driver = new ChromeDriver(options);
     }

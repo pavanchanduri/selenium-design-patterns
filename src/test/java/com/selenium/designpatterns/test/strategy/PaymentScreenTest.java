@@ -84,5 +84,4 @@ public class PaymentScreenTest extends BaseTest {
                 {"NB", nb}
         };
     }
-
 }

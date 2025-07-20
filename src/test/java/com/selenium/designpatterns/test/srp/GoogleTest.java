@@ -62,7 +62,9 @@ public class GoogleTest extends BaseTest {
 
     /**
      * Data provider for Google search test
-     * @return
+     * @return 2D array of test data
+     *         where each row contains a keyword and an index
+     *         for the search suggestion
      */
     @DataProvider
     public Object[][] getData(){

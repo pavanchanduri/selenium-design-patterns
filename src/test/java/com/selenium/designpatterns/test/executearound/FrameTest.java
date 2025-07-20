@@ -9,8 +9,12 @@ public class FrameTest extends BaseTest {
 
     private MainPage mainPage;
 
+    /**
+     * This method initializes the MainPage object before running the tests.
+     * It is annotated with @BeforeTest to ensure it runs before any test methods.
+     */
     @BeforeTest
-    public void setMainPage(){
+    public void setMainPage() {
         this.mainPage = new MainPage(driver);
     }
 
@@ -24,7 +28,7 @@ public class FrameTest extends BaseTest {
      * the details of switching between frames.
      */
     @Test
-    public void frameTest(){
+    public void frameTest() {
         this.mainPage.goTo();
         this.mainPage.onFrameA(a -> {
             a.setFirstName("fn1");
@@ -33,5 +37,4 @@ public class FrameTest extends BaseTest {
         this.mainPage.onFrameC(c -> c.setAddress("address for FrameC"));
         this.mainPage.onFrameB(b -> b.setMessage("this is for Frame B"));
     }
-
 }

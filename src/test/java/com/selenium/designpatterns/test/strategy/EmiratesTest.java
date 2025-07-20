@@ -13,11 +13,22 @@ public class EmiratesTest extends BaseTest {
 
     private EmiratesPage emiratesPage;
 
+    /**
+     * This method initializes the EmiratesPage object before running the tests.
+     * It is annotated with @BeforeTest to ensure it runs before any test methods.
+     */
     @BeforeTest
     public void setPaymentScreen(){
         this.emiratesPage = new EmiratesPage(this.driver);
     }
 
+    /**
+     * This test method performs a flight search using different flight search strategies.
+     * It uses a data provider to supply different flight search strategies and their corresponding search details.
+     *
+     * @param flightSearch The flight search strategy to be used.
+     * @param searchDetails The details for the flight search.
+     */
     @Test(dataProvider = "getData")
     public void paymentTest(IFlightSearch flightSearch, Map<String, String> searchDetails){
         this.emiratesPage.goTo();
@@ -25,6 +36,10 @@ public class EmiratesTest extends BaseTest {
         this.emiratesPage.searchForFlights(searchDetails);
     }
 
+    /**
+     * Data provider for flight search tests
+     * @return 2D array of flight search strategies and their details
+     */
     @DataProvider
     public Object[][] getData(){
         Map<String, String> map = new HashMap<>();
@@ -38,7 +53,4 @@ public class EmiratesTest extends BaseTest {
             {new MultiWay(), map},
         };
     }
-
-
-
 }
