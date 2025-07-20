@@ -48,9 +48,9 @@ public class DashboardPageTest extends BaseTest {
     @DataProvider
     public Object[] getData(){
         return new Object[]{
-             Decorators.guestPage,
-             Decorators.suPage,
-             Decorators.adminPage
+             DashboardDecorators.guestPage,
+             DashboardDecorators.suPage,
+             DashboardDecorators.adminPage
         };
     }
 }

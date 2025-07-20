@@ -10,7 +10,7 @@ import org.testng.Assert;
 import java.util.List;
 import java.util.function.Consumer;
 
-public class Decorators {
+public class DashboardDecorators {
 
     /**
      * This class contains the ingredients for the decorator pattern test.
