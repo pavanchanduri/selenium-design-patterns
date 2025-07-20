@@ -83,5 +83,4 @@ public class PaymentScreenPage {
     public String getStatus(){
         return this.status.getText().trim();
     }
-
 }

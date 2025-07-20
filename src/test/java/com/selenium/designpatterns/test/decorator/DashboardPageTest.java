@@ -53,7 +53,4 @@ public class DashboardPageTest extends BaseTest {
              Decorators.adminPage
         };
     }
-
-
-
 }
