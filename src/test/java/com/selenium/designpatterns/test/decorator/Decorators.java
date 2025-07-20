@@ -43,7 +43,6 @@ public class Decorators {
     private static final Consumer<DashboardPage> suComponentPresent = (dp) -> shouldDisplay(dp.getSuperUserComponents());
     private static final Consumer<DashboardPage> suComponentNotPresent = (dp) -> shouldNotDisplay(dp.getSuperUserComponents());
     private static final Consumer<DashboardPage> guestComponentPresent = (dp) -> shouldDisplay(dp.getGuestComponents());
-    private static final Consumer<DashboardPage> guestComponentNotPresent = (dp) -> shouldNotDisplay(dp.getGuestComponents());
     
     /**
      * This section defines consumers for selecting user roles on the DashboardPage.
@@ -63,7 +62,7 @@ public class Decorators {
      * These consumers can be used in tests to verify that the DashboardPage behaves correctly
      * for different user roles.    
      */
-    public static final Consumer<DashboardPage> guestPage = guestSelection.andThen(guestComponentPresent).andThen(suComponentPresent).andThen(adminComponentNotPresent);
+    public static final Consumer<DashboardPage> guestPage = guestSelection.andThen(guestComponentPresent).andThen(suComponentNotPresent).andThen(adminComponentNotPresent);
     public static final Consumer<DashboardPage> suPage = suSelection.andThen(guestComponentPresent).andThen(suComponentPresent).andThen(adminComponentNotPresent);
     public static final Consumer<DashboardPage> adminPage = adminSelection.andThen(guestComponentPresent).andThen(suComponentPresent).andThen(adminComponentPresent);
 }
