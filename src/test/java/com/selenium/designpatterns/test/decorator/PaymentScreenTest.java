@@ -47,12 +47,12 @@ public class PaymentScreenTest extends BaseTest {
     @DataProvider
     public Object[] getData(){
         return new Object[]{
-                validCC.andThen(buy).andThen(successfulPurchase),
-                freeCoupon.andThen(buy).andThen(successfulPurchase),
-                discountedCoupon.andThen(validCC).andThen(buy).andThen(successfulPurchase),
-                invalidCC.andThen(buy).andThen(failedPurchase),
-                invalidCC.andThen(discountedCoupon).andThen(buy).andThen(failedPurchase),
-                buy.andThen(failedPurchase)
+                testcase1,
+                testcase2,
+                testcase3,
+                testcase4,
+                testcase5,
+                testcase6
         };
     }
 }
